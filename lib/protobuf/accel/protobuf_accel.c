@@ -27,6 +27,8 @@ static VALUE varint_encode(VALUE self, VALUE rb_value) {
     }
     buf[byte_count++] = value;
     rb_str_cat(bytes, buf, byte_count);
+    
+    return bytes;
   } else {
     /* Unsupported parameter type - pass through to Ruby version */
     return rb_funcall(self, IDrb_encode, rb_value);
